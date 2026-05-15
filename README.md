@@ -85,7 +85,6 @@ The platform identifies critical churn drivers such as:
 - Automated A/B test tracking for retention interventions.
 
 ## 👤 Author
-Developed by **Jod729** - Focused on bridging the gap between advanced ML research and production-grade business intelligence.
+Developed by **Abrakant Rout** - Focused on bridging the gap between advanced ML research and production-grade business intelligence.
 =======
 # churn-analysis-prediction
->>>>>>> 8af5215d43ff5f37d7dec417fe012ede1959f05a
