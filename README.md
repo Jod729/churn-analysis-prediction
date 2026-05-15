@@ -3,12 +3,24 @@
 ## Overview
 ChurnAI Enterprise is a production-grade machine learning platform designed to identify high-risk customer segments and predict churn with high precision. By leveraging advanced ensemble learning and automated feature engineering, this platform provides actionable intelligence to protect recurring revenue and optimize retention strategies.
 
-## Features
-- **Predictive Intelligence**: High-sensitivity CatBoost engine optimized for Recall and F1-Score.
-- **Enterprise Dashboard**: Professional SaaS-inspired interface for executive-level business overview.
-- **Automated Risk Profiling**: Real-time risk categorization (Stable to Critical) based on individual customer parameters.
-- **Leakage-Free Pipeline**: Industry-standard ML architecture with stratified cross-validation and in-fold SMOTE imbalance handling.
-- **Tactical Recommendations**: Automated retention suggestions driven by customer-specific risk factors.
+## Machine Learning Engineering
+This platform is built on a robust ML foundation designed for real-world business deployment:
+
+### 1. Ensemble Pipeline
+The core engine utilizes a **CatBoost Classifier**, a high-performance gradient-boosting ensemble optimized for categorical data handling and robust generalization. The model was tuned across 40 trials using **Bayesian Optimization** (Optuna) to maximize both Recall and F1-Score.
+
+### 2. Feature Engineering & Selection
+Beyond raw data, the system engineers 6 custom behavioral and financial indicators:
+- **Monthly-to-Total Ratio**: Detection of sudden billing velocity changes.
+- **Tenure-Monthly Interaction**: Capturing the combined effect of loyalty and spend.
+- **Service Density**: Quantifying the customer's overall service ecosystem.
+- **Behavioral Flags**: Identification of critical segments like Month-to-Month contracts and Fiber Optic users.
+
+### 3. Class Imbalance Handling
+To combat the historical minority of churn cases (approx. 26% of the dataset), the pipeline integrates **SMOTE** (Synthetic Minority Over-sampling Technique) strictly within the cross-validation folds to prevent data leakage while ensuring the model learns minority patterns effectively.
+
+### 4. Decision Threshold Optimization
+Instead of a default 0.5 probability cutoff, the system employs a **Calibrated Decision Boundary** optimized via Precision-Recall curves. This ensures the model captures the maximum possible churners while maintaining business-viable precision.
 
 ## Machine Learning Engineering
 The platform is built on a robust ML foundation designed for real-world business deployment:
@@ -37,13 +49,13 @@ The repository includes a standalone, optimized training script (`advanced_ml.py
 - **Visualization**: Matplotlib, Seaborn
 
 ## Model Performance
-The platform is optimized for **Recall** to minimize missed churn opportunities while maintaining high precision.
+Optimized for high-sensitivity detection to minimize missed retention opportunities.
 
 | Metric | Score |
 | :--- | :--- |
 | **Accuracy** | 78.0% |
-| **Recall** | 72.7% |
-| **F1-Score** | 0.64 |
+| **Recall (Sensitivity)** | **72.7%** |
+| **F1-Score** | **0.64** |
 | **ROC-AUC** | 0.84 |
 
 ## Dashboard Preview
@@ -97,14 +109,9 @@ python advanced_ml.py
 ```
 
 ## Business Insights
-- **Contract Volatility**: Month-to-month contracts are identified as the strongest predictor of churn risk.
-- **Service Synergy**: Absence of Tech Support and Online Security correlates highly with customer attrition.
-- **Stability Threshold**: Customers exceeding 12 months of tenure show significantly higher loyalty scores.
-
-## Future Improvements
-- Multi-region churn trend analysis.
-- Automated email triggers for high-risk customer outreach.
-- SHAP-based local explainability for individual predictions.
+- **Contract Volatility**: Month-to-month contracts are the strongest predictor of attrition.
+- **Service Synergy**: Absence of Tech Support and Online Security correlates highly with increased churn risk.
+- **Stability Threshold**: Customers exceeding 12 months of tenure show significantly higher loyalty indicators.
 
 ## Author
 Developed by **Jod729**.

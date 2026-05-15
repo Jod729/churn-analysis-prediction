@@ -39,7 +39,6 @@ ENV/
 
 # Project specific
 app_backup_final_stable.py
-advanced_ml.py
 churn_prediction.py
 premium_app.py
 app_comparison.py
