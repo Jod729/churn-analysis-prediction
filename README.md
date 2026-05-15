@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ChurnAI Enterprise: Customer Retention Intelligence Platform
 
 ![Project Status](https://img.shields.io/badge/Status-Production--Ready-success)
