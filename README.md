@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ChurnAI Enterprise: Customer Retention Intelligence Platform
 
 ![Project Status](https://img.shields.io/badge/Status-Production--Ready-success)
@@ -85,3 +86,6 @@ The platform identifies critical churn drivers such as:
 
 ## 👤 Author
 Developed by **Jod729** - Focused on bridging the gap between advanced ML research and production-grade business intelligence.
+=======
+# churn-analysis-prediction
+>>>>>>> 8af5215d43ff5f37d7dec417fe012ede1959f05a
