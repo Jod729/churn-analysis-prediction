@@ -3,8 +3,15 @@
 ## Overview
 ChurnAI Enterprise is a production-grade machine learning platform designed to identify high-risk customer segments and predict churn with high precision. By leveraging advanced ensemble learning and automated feature engineering, this platform provides actionable intelligence to protect recurring revenue and optimize retention strategies.
 
+## Features
+- **Predictive Intelligence**: High-sensitivity CatBoost engine optimized for Recall and F1-Score.
+- **Enterprise Dashboard**: Professional SaaS-inspired interface for executive-level business overview.
+- **Automated Risk Profiling**: Real-time risk categorization (Stable to Critical) based on individual customer parameters.
+- **Leakage-Free Pipeline**: Industry-standard ML architecture with stratified cross-validation and in-fold SMOTE imbalance handling.
+- **Tactical Recommendations**: Automated retention suggestions driven by customer-specific risk factors.
+
 ## Machine Learning Engineering
-This platform is built on a robust ML foundation designed for real-world business deployment:
+The platform is built on a robust ML foundation designed for real-world business deployment:
 
 ### 1. Ensemble Pipeline
 The core engine utilizes a **CatBoost Classifier**, a high-performance gradient-boosting ensemble optimized for categorical data handling and robust generalization. The model was tuned across 40 trials using **Bayesian Optimization** (Optuna) to maximize both Recall and F1-Score.
@@ -22,20 +29,8 @@ To combat the historical minority of churn cases (approx. 26% of the dataset), t
 ### 4. Decision Threshold Optimization
 Instead of a default 0.5 probability cutoff, the system employs a **Calibrated Decision Boundary** optimized via Precision-Recall curves. This ensures the model captures the maximum possible churners while maintaining business-viable precision.
 
-## Machine Learning Engineering
-The platform is built on a robust ML foundation designed for real-world business deployment:
-
-### 1. Ensemble Pipeline
-The core engine utilizes a **CatBoost Classifier**, a high-performance gradient-boosting ensemble optimized for categorical data handling and robust generalization. The model was tuned using **Bayesian Optimization** (Optuna).
-
-### 2. Feature Engineering & Selection
-Beyond raw data, the system engineers custom behavioral and financial indicators:
-- **Monthly-to-Total Ratio**: Detection of sudden billing velocity changes.
-- **Tenure-Monthly Interaction**: Capturing the combined effect of loyalty and spend.
-- **Service Density**: Quantifying the customer's overall service ecosystem.
-
-### 3. Production Training Pipeline (`advanced_ml.py`)
-The repository includes a standalone, optimized training script (`advanced_ml.py`) that encapsulates:
+### 5. Production Training Pipeline (`advanced_ml.py`)
+The repository includes a standalone, optimized training script (`advanced_ml.py`) that encapsulates the entire backend engineering workflow:
 - Automated preprocessing and feature engineering.
 - Stratified 5-fold cross-validation for stability verification.
 - Decision boundary optimization via Precision-Recall curves.
@@ -90,7 +85,7 @@ pip install -r requirements.txt
 # Start the Streamlit Dashboard
 streamlit run app.py
 
-# (Optional) Re-run the Advanced ML Training Pipeline
+# (Optional) Re-train the model
 python advanced_ml.py
 ```
 
