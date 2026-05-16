@@ -109,4 +109,4 @@ python advanced_ml.py
 - **Stability Threshold**: Customers exceeding 12 months of tenure show significantly higher loyalty indicators.
 
 ## Author
-Developed by **Jod729**.
+Developed by **Abrakant Rout**.
